@@ -40,7 +40,7 @@
             bindings = <
 &trans  &trans  &trans  &trans          &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
 &trans  &trans  &trans  &trans          &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
-&trans  &trans  &trans  &mt C LEFT_ALT  &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
+&trans  &trans  &trans  &mt LEFT_ALT C  &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
                         &trans          &kp LEFT_COMMAND  &trans    &kp RET  &trans  &mt RG(LC(LA(RIGHT_COMMAND))) EQUAL
             >;
         };
