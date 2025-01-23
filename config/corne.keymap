@@ -10,6 +10,19 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    behaviors {
+        c_time: c_time {
+            compatible = "zmk,behavior-hold-tap";
+            label = "C_TIME";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            hold-trigger-key-positions = <27>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -22,10 +35,10 @@
 
             display-name = "Base";
             bindings = <
-&kp BACKSLASH  &kp Q  &kp W  &kp E               &kp R         &kp T             &kp Y    &kp U      &kp I                       &kp O    &kp P     &kp BSPC
-&kp TAB        &kp A  &kp S  &kp D               &lt 2 F       &kp G             &kp H    &kp J      &kp K                       &kp L    &kp SEMI  &kp SQT
-&kp UNDER      &kp Z  &kp X  &mt LEFT_COMMAND C  &mt LCTRL V   &kp B             &kp N    &lt 2 M    &mt LEFT_CONTROL LC(COMMA)  &kp DOT  &kp FSLH  &kp PLUS
-                             &lt 3 MINUS         &kp LEFT_ALT  &kp LEFT_SHIFT    &kp RET  &kp SPACE  &mt RIGHT_ALT EQUAL
+&kp BACKSLASH  &kp Q  &kp W  &kp E                   &kp R         &kp T             &kp Y    &kp U      &kp I                       &kp O    &kp P     &kp BSPC
+&kp TAB        &kp A  &kp S  &kp D                   &lt 2 F       &kp G             &kp H    &kp J      &kp K                       &kp L    &kp SEMI  &kp SQT
+&kp UNDER      &kp Z  &kp X  &c_time LEFT_COMMAND C  &mt LCTRL V   &kp B             &kp N    &lt 2 M    &mt LEFT_CONTROL LC(COMMA)  &kp DOT  &kp FSLH  &kp PLUS
+                             &lt 3 MINUS             &kp LEFT_ALT  &kp LEFT_SHIFT    &kp RET  &kp SPACE  &mt RIGHT_ALT EQUAL
             >;
         };
 
@@ -38,10 +51,10 @@
 
             display-name = "mac";
             bindings = <
-&trans  &trans  &trans  &trans          &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
-&trans  &trans  &trans  &trans          &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
-&trans  &trans  &trans  &mt LEFT_ALT C  &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
-                        &trans          &kp LEFT_COMMAND  &trans    &kp RET  &trans  &mt RG(LC(LA(RIGHT_COMMAND))) EQUAL
+&trans  &trans  &trans  &trans              &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
+&trans  &trans  &trans  &trans              &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
+&trans  &trans  &trans  &c_time LEFT_ALT C  &trans            &trans    &trans   &trans  &trans                               &trans  &trans  &trans
+                        &trans              &kp LEFT_COMMAND  &trans    &kp RET  &trans  &mt RG(LC(LA(RIGHT_COMMAND))) EQUAL
             >;
         };
 
